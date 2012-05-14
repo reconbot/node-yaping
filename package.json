@@ -1,0 +1,16 @@
+{
+  "author": "Francis Gulotta <wizard@roborooter.com>",
+  "name": "yaping",
+  "description": "yaping is yet another ping utility for nodejs",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/reconbot/node-yaping.git"
+  },
+  "main": "ping.js",
+  "engines": {
+    "node": "~0.6.6"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -54,7 +54,7 @@ var ping = function(host, cb){
       return cb(erorr,data);
     }
 
-    var re = /(\d+) bytes from (.+): icmp_seq=(\d+) ttl=(\d+) time=([\d.]+) ms/;
+    var re = /(\d+) bytes from (.+): icmp_(?:r|s)eq=(\d+) ttl=(\d+) time=([\d.]+) ms/;
     var parts = data.msg.match(re);
 
     if(!parts.length){

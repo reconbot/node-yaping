@@ -37,10 +37,11 @@ var ping = function(host, cb){
 
     var stdoutLines = stdout.split("\n");
     var ipRe = /\(([\d\.]+)\)/;
-    data.ip = stdoutLines[0].match(ipRe)[1];
-    if(!data.ip){
+    var matches;
+
+    if((matches = stdoutLines[0].match(ipRe)) && (data.ip = matches[1]) && !data.ip){
       error = new Error("ping had malformed stdout\n" . stdout);
-      return cb(erorr,data);
+      return cb(error,data);
     }
 
     if(code === 2){
@@ -51,7 +52,7 @@ var ping = function(host, cb){
     data.msg = stdoutLines[1];
     if(!data.msg){
       error = new Error("ping had malformed stdout\n" . stdout);
-      return cb(erorr,data);
+      return cb(error,data);
     }
 
     var re = /(\d+) bytes from (.+): icmp_(?:r|s)eq=(\d+) ttl=(\d+) time=([\d.]+) ms/;

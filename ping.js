@@ -40,7 +40,7 @@ var ping = function(host, cb){
     var matches;
 
     if((matches = stdoutLines[0].match(ipRe)) && (data.ip = matches[1]) && !data.ip){
-      error = new Error("ping had malformed stdout\n" . stdout);
+      error = new Error("ping had malformed stdout: " + stdout);
       return cb(error,data);
     }
 
@@ -51,7 +51,7 @@ var ping = function(host, cb){
 
     data.msg = stdoutLines[1];
     if(!data.msg){
-      error = new Error("ping had malformed stdout\n" . stdout);
+      error = new Error("ping had malformed stdout: " + stdout);
       return cb(error,data);
     }
 
@@ -59,7 +59,7 @@ var ping = function(host, cb){
     var parts = data.msg.match(re);
 
     if(!parts.length){
-      error = new Error("ping had malformed stdout\n" . stdout);
+      error = new Error("ping had malformed stdout: " + stdout);
       return cb(error,data);
     }
 
@@ -73,7 +73,7 @@ var ping = function(host, cb){
 };
 
 var pingWithLookup = function(host,cb){
-  
+
   if(!cb){
     cb = function(){};
   }

@@ -1,6 +1,8 @@
 node-yaping
 ===========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/reconbot/node-yaping.svg)](https://greenkeeper.io/)
+
 yaping is yet another ping utility for nodejs
 
 I wouldn't use it if I were you. I don't even use it and I'm me. I'm pushing this to further my
